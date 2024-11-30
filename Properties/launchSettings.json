@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "GithubChangelog": {
+      "commandName": "Project",
+      "commandLineArgs": "--repo J:/Dev/LuxEstMgt"
+    }
+  }
+}
