@@ -88,24 +88,13 @@ jobs:
           echo "Contents of ./artifacts:"
           ls -R ./artifacts
 
-      # Create GitHub Release
-      - name: Create Release
-        uses: actions/create-release@v1
+      # Create GitHub Release and Upload Assets
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            ./artifacts/linux/*
+            ./artifacts/windows/*
+            ./artifacts/macos/*
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ github.ref_name }}
-          release_name: Release ${{ github.ref_name }}
-          draft: false
-          prerelease: false
-
-      # Upload release assets
-      - name: Upload Release Assets
-        uses: svenstaro/upload-release-action@v2
-        with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: |
-            ./artifacts/linux/GithubChangelog
-            ./artifacts/windows/GithubChangelog.exe
-            ./artifacts/macos/GithubChangelog
-          tag: ${{ github.ref_name }}
