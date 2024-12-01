@@ -81,20 +81,20 @@ jobs:
           name: app-macos-latest
           path: ./artifacts/macos
 
-      - name: List Files for Debugging
+      # Zip the artifacts
+      - name: Zip Artifacts
         run: |
-          echo "Current working directory:"
-          pwd
-          echo "Contents of ./artifacts:"
-          ls -R ./artifacts
+          zip -j ./artifacts/linux.zip ./artifacts/linux/*
+          zip -j ./artifacts/windows.zip ./artifacts/windows/*
+          zip -j ./artifacts/macos.zip ./artifacts/macos/*
 
       # Create GitHub Release and Upload Assets
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            ./artifacts/linux/*
-            ./artifacts/windows/*
-            ./artifacts/macos/*
+            ./artifacts/linux.zip
+            ./artifacts/windows.zip
+            ./artifacts/macos.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
