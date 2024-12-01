@@ -375,7 +375,7 @@ class ChangelogGenerator
             {
                 var requestPayload = new
                 {
-                    model = "gpt-3.5-turbo",
+                    model = "gpt-40-mini",
                     messages = new[]
                     {
                         new { role = "system", content = "You are a helpful assistant summarizing pull request details into a changelog for business use. Please provide the output as a plain JSON object without any additional text, formatting, or explanation. The JSON should have two properties: 'sentence' and 'emoji'. The 'sentence' property should contain a one-sentence summary, limited to 80 characters, of the pull request and its associated issues, that is focused on the business value, without including issue or PR numbers. The 'emoji' property should contain a single relevant unicode emoji that represents the changelog entry scentence." },
