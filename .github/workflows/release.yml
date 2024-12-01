@@ -105,7 +105,7 @@ jobs:
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: |
-            ./artifacts/linux/*
-            ./artifacts/windows/*
-            ./artifacts/macos/*
+            ./artifacts/linux/GithubChangelog
+            ./artifacts/windows/GithubChangelog.exe
+            ./artifacts/macos/GithubChangelog
           tag: ${{ github.ref_name }}
