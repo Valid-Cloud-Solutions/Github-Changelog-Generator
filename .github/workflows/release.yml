@@ -81,6 +81,13 @@ jobs:
           name: app-macos-latest
           path: ./artifacts/macos
 
+      - name: List Files for Debugging
+        run: |
+          echo "Current working directory:"
+          pwd
+          echo "Contents of ./artifacts:"
+          ls -R ./artifacts
+
       # Create GitHub Release
       - name: Create Release
         uses: actions/create-release@v1
