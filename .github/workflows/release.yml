@@ -38,7 +38,7 @@ jobs:
 
       # Build the application
       - name: Build Application
-        run: dotnet publish -c Release -r ${{ matrix.rtid }} --self-contained true /p:PublishSingleFile=true /p:PublishTrimmed=true
+        run: dotnet publish GithubChangelog.csproj -c Release -r ${{ matrix.rtid }} --self-contained true /p:PublishSingleFile=true /p:PublishTrimmed=true
         shell: bash
 
       # Upload artifact
