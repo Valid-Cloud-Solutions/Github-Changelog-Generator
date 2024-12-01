@@ -11,9 +11,11 @@ using System.Threading.Tasks;
 using CommandLine;
 using Octokit;
 using System.Text.Json;
+using System.Diagnostics.CodeAnalysis;
 
 class ChangelogGenerator
 {
+    [DynamicDependency(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor, typeof(Options))]
     static async Task Main(string[] args)
     {
         await Parser.Default.ParseArguments<Options>(args)
