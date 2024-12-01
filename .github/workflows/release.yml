@@ -46,7 +46,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: app-${{ matrix.os }}
-          path: bin/Release/net7.0/${{ matrix.rtid }}/publish/*
+          path: bin/Release/net8.0/${{ matrix.rtid }}/publish/*
 
   release:
     name: Create GitHub Release
